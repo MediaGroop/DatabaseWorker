@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1C329780-EF03-40F8-A721-897D2B09A948}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>RakDatabaseWorker</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>..\Deps\openssl\lib;..\Deps\odb\includes\lib64;..\Deps\odb\includes\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>..\Deps\openssl\lib;..\Deps\odb\includes\lib64;..\Deps\odb\includes\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>..\Deps\openssl\lib;..\Deps\odb\includes\lib64;..\Deps\odb\includes\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>..\Deps\openssl\lib;..\Deps\odb\includes\lib64;..\Deps\odb\includes\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>..\Deps\Rak-Net\Source;..\Deps\odb\includes;</AdditionalIncludeDirectories>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ws2_32.lib;odb-d.lib;odb-pgsql-d.lib;libeay32MD.lib;ssleay32MD.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>..\Deps\Rak-Net\Source;..\Deps\odb\includes;</AdditionalIncludeDirectories>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ws2_32.lib;odb-d.lib;odb-pgsql-d.lib;libeay32MD.lib;ssleay32MD.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>..\Deps\Rak-Net\Source;..\Deps\odb\includes;</AdditionalIncludeDirectories>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>ws2_32.lib;odb-d.lib;odb-pgsql-d.lib;libeay32MD.lib;ssleay32MD.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>..\Deps\Rak-Net\Source;..\Deps\odb\includes;</AdditionalIncludeDirectories>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>ws2_32.lib;odb-d.lib;odb-pgsql-d.lib;libeay32MD.lib;ssleay32MD.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Deps\Rak-Net\Source\AutopatcherPatchContext.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\AutopatcherRepositoryInterface.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\Base64Encoder.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\BitStream.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\CCRakNetSlidingWindow.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\CCRakNetUDT.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\CheckSum.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\CloudClient.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\CloudCommon.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\CloudServer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\CommandParserInterface.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\ConnectionGraph2.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\ConsoleServer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DataCompressor.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DirectoryDeltaTransfer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DR_SHA1.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_BinarySearchTree.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_BPlusTree.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_BytePool.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_ByteQueue.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_Hash.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_Heap.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_HuffmanEncodingTree.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_HuffmanEncodingTreeFactory.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_HuffmanEncodingTreeNode.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_LinkedList.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_List.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_Map.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_MemoryPool.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_Multilist.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_OrderedChannelHeap.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_OrderedList.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_Queue.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_QueueLinkedList.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_RangeList.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_Table.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_ThreadsafeAllocatingQueue.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_Tree.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DS_WeightedGraph.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\DynDNS.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\EmailSender.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\EmptyHeader.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\EpochTimeToString.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\Export.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\FileList.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\FileListNodeContext.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\FileListTransfer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\FileListTransferCBInterface.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\FileOperations.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\FormatString.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\FullyConnectedMesh2.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\Getche.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\Gets.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\GetTime.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\gettimeofday.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\GridSectorizer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\HTTPConnection.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\HTTPConnection2.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\IncrementalReadInterface.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\InternalPacket.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\Itoa.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\Kbhit.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\LinuxStrings.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\LocklessTypes.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\LogCommandParser.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\MessageFilter.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\MessageIdentifiers.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\MTUSize.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\NativeFeatureIncludes.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\NativeFeatureIncludesOverrides.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\NativeTypes.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\NatPunchthroughClient.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\NatPunchthroughServer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\NatTypeDetectionClient.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\NatTypeDetectionCommon.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\NatTypeDetectionServer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\NetworkIDManager.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\NetworkIDObject.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\PacketConsoleLogger.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\PacketFileLogger.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\PacketizedTCP.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\PacketLogger.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\PacketOutputWindowLogger.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\PacketPool.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\PacketPriority.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\PluginInterface2.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\PS3Includes.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\PS4Includes.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\Rackspace.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakAlloca.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakAssert.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakMemoryOverride.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakNetCommandParser.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakNetDefines.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakNetDefinesOverrides.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakNetSmartPtr.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakNetSocket.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakNetSocket2.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakNetStatistics.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakNetTime.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakNetTransport2.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakNetTypes.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakNetVersion.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakPeer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakPeerInterface.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakSleep.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakString.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakThread.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RakWString.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\Rand.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RandSync.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\ReadyEvent.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RefCountedObj.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RelayPlugin.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\ReliabilityLayer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\ReplicaEnums.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\ReplicaManager3.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\Router2.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\RPC4Plugin.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\SecureHandshake.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\SendToThread.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\SignaledEvent.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\SimpleMutex.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\SimpleTCPServer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\SingleProducerConsumer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\SocketDefines.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\SocketIncludes.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\SocketLayer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\StatisticsHistory.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\StringCompressor.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\StringTable.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\SuperFastHash.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\TableSerializer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\TCPInterface.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\TeamBalancer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\TeamManager.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\TelnetTransport.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\ThreadPool.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\ThreadsafePacketLogger.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\TransportInterface.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\TwoWayAuthentication.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\UDPForwarder.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\UDPProxyClient.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\UDPProxyCommon.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\UDPProxyCoordinator.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\UDPProxyServer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\VariableDeltaSerializer.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\VariableListDeltaTracker.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\VariadicSQLParser.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\VitaIncludes.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\WindowsIncludes.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\WSAStartupSingleton.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\XBox360Includes.h" />
+    <ClInclude Include="..\Deps\Rak-Net\Source\_FindFirst.h" />
+    <ClInclude Include="ConfigLoader.h" />
+    <ClInclude Include="ConnectedClient.h" />
+    <ClInclude Include="easylogging++.h" />
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="minGlue.h" />
+    <ClInclude Include="minIni.h" />
+    <ClInclude Include="NetworkListener.h" />
+    <ClInclude Include="Server.h" />
+    <ClInclude Include="ServVars.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="WorldInfo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Deps\Rak-Net\Source\Base64Encoder.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\BitStream.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\CCRakNetSlidingWindow.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\CCRakNetUDT.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\CheckSum.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\CloudClient.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\CloudCommon.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\CloudServer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\CommandParserInterface.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\ConnectionGraph2.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\ConsoleServer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\DataCompressor.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\DirectoryDeltaTransfer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\DR_SHA1.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\DS_BytePool.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\DS_ByteQueue.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\DS_HuffmanEncodingTree.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\DS_Table.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\DynDNS.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\EmailSender.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\EpochTimeToString.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\FileList.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\FileListTransfer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\FileOperations.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\FormatString.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\FullyConnectedMesh2.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\Getche.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\Gets.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\GetTime.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\gettimeofday.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\GridSectorizer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\HTTPConnection.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\HTTPConnection2.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\IncrementalReadInterface.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\Itoa.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\LinuxStrings.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\LocklessTypes.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\LogCommandParser.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\MessageFilter.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\NatPunchthroughClient.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\NatPunchthroughServer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\NatTypeDetectionClient.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\NatTypeDetectionCommon.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\NatTypeDetectionServer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\NetworkIDManager.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\NetworkIDObject.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\PacketConsoleLogger.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\PacketFileLogger.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\PacketizedTCP.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\PacketLogger.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\PacketOutputWindowLogger.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\PluginInterface2.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\PS4Includes.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\Rackspace.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakMemoryOverride.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetCommandParser.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket2.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket2_360_720.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket2_Berkley.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket2_Berkley_NativeClient.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket2_NativeClient.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket2_PS3_PS4.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket2_PS4.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket2_Vita.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket2_WindowsStore8.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket2_Windows_Linux.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetSocket2_Windows_Linux_360.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetStatistics.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetTransport2.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakNetTypes.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakPeer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakSleep.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakString.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakThread.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RakWString.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\Rand.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RandSync.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\ReadyEvent.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RelayPlugin.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\ReliabilityLayer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\ReplicaManager3.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\Router2.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\RPC4Plugin.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\SecureHandshake.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\SendToThread.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\SignaledEvent.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\SimpleMutex.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\SocketLayer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\StatisticsHistory.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\StringCompressor.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\StringTable.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\SuperFastHash.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\TableSerializer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\TCPInterface.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\TeamBalancer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\TeamManager.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\TelnetTransport.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\ThreadsafePacketLogger.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\TwoWayAuthentication.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\UDPForwarder.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\UDPProxyClient.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\UDPProxyCoordinator.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\UDPProxyServer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\VariableDeltaSerializer.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\VariableListDeltaTracker.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\VariadicSQLParser.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\VitaIncludes.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\WSAStartupSingleton.cpp" />
+    <ClCompile Include="..\Deps\Rak-Net\Source\_FindFirst.cpp" />
+    <ClCompile Include="ConfigLoader.cpp" />
+    <ClCompile Include="minIni.c" />
+    <ClCompile Include="NetworkListener.cpp" />
+    <ClCompile Include="RakDatabaseWorker.cpp" />
+    <ClCompile Include="Server.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
