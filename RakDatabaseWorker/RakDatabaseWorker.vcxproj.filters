@@ -25,6 +25,15 @@
     <Filter Include="Файлы исходного кода\RakNet">
       <UniqueIdentifier>{b9c4cbb3-9eb5-4533-bdcd-63867ab88e5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\Server\rpc">
+      <UniqueIdentifier>{5ba3f111-43d5-47e2-9c66-07fde4c5e31d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Server\odb">
+      <UniqueIdentifier>{8eaeb8ab-3047-4634-9457-26fdccf08e65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Server\odb">
+      <UniqueIdentifier>{9c377444-f9ce-4e46-b94a-a36b0e57623d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -528,6 +537,12 @@
     <ClInclude Include="ServVars.h">
       <Filter>Заголовочные файлы\Server</Filter>
     </ClInclude>
+    <ClInclude Include="RPCLoadWorlds.h">
+      <Filter>Заголовочные файлы\Server\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldInfo-odb.hxx">
+      <Filter>Заголовочные файлы\Server\odb</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -877,6 +892,9 @@
     </ClCompile>
     <ClCompile Include="minIni.c">
       <Filter>Файлы исходного кода\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldInfo-odb.cxx">
+      <Filter>Файлы исходного кода\Server\odb</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

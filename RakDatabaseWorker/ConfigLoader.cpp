@@ -37,7 +37,7 @@ std::string ConfigLoader::getVal(std::string key)
 	//LOG(INFO) << "end of iterating through map...";
 
 	LOG(ERROR) << "There's no value with given name!";
-	return NULL;
+	return "0";
 }
 
 //Just parsing value to int, use only when you certainly know about var type!

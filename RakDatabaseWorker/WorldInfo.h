@@ -46,6 +46,7 @@ public:
 
 private:
 	friend class odb::access;
+#pragma db id 
 	int _id;
 	std::string _name;
 	float _x;
