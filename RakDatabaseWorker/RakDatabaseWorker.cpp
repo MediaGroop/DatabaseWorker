@@ -8,6 +8,9 @@
 #include "Server.h"
 #include "ServVars.h"
 
+//RPC's
+#include "RPCLoadWorlds.h"
+
 using namespace FileManager;
 
 #define ELPP_STL_LOGGING
@@ -65,7 +68,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	mainServer->getPeer()->AttachPlugin(&rpc);
 	
 	//Registering RPC's
-	
+	rpc.RegisterSlot("lw", loadWorldsRPC, 0);
 	//END
 
 	gets(str);
