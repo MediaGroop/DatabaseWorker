@@ -6,11 +6,7 @@
 #include "RPC4Plugin.h"
 
 //#region vars
-static Server* mainServer;
-static RakNet::RPC4 rpc;
-std::auto_ptr<odb::database> dataBase(new odb::pgsql::database(
-	"postgres",
-	"root",
-	"data",
-	"localhost"));
+extern Server* mainServer;
+extern RakNet::RPC4 rpc;
+extern std::auto_ptr<odb::database> dataBase;
 //#endregion

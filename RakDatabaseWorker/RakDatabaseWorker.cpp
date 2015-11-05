@@ -23,6 +23,15 @@ using namespace FileManager;
 //DONT FORGET THIS SHIT!!1
 INITIALIZE_EASYLOGGINGPP
 
+//extern vars
+Server* mainServer;
+RakNet::RPC4 rpc;
+std::auto_ptr<odb::database> dataBase(new odb::pgsql::database(
+	"postgres",
+	"root",
+	"data",
+	"localhost"));
+
 //Configuring easyLogging
 void setupLog(){
 	time_t t;
@@ -68,7 +77,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	mainServer->getPeer()->AttachPlugin(&rpc);
 	
 	//Registering RPC's
-	rpc.RegisterSlot("lw", loadWorldsRPC, 0);
+	rpc.RegisterSlot("lw", loadWorldsRPC, 0); // loads worlds info
+	rpc.RegisterSlot("lpe", loadPlayerEntity, 0); // loads entity for player
 	//END
 
 	gets(str);
