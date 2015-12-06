@@ -555,17 +555,26 @@
     <ClInclude Include="Entity.h">
       <Filter>Заголовочные файлы\Server</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\..\Dev\odb compiler\bin\Entity-odb.hxx">
-      <Filter>Заголовочные файлы\Server\odb</Filter>
-    </ClInclude>
     <ClInclude Include="PhysicsData.h">
       <Filter>Заголовочные файлы\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityLoader.h">
+      <Filter>Заголовочные файлы\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="RPCLoadEntity.h">
+      <Filter>Заголовочные файлы\Server\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityFactory.h">
+      <Filter>Заголовочные файлы\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity-odb.hxx">
+      <Filter>Заголовочные файлы\Server\odb</Filter>
     </ClInclude>
     <ClInclude Include="PhysicsData-odb.hxx">
       <Filter>Заголовочные файлы\Server\odb</Filter>
     </ClInclude>
-    <ClInclude Include="EntityLoader.h">
-      <Filter>Заголовочные файлы\Server</Filter>
+    <ClInclude Include="Entity_Object.h">
+      <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -920,14 +929,17 @@
     <ClCompile Include="WorldInfo-odb.cxx">
       <Filter>Файлы исходного кода\Server\odb</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Dev\odb compiler\bin\EntityLink-odb.cxx">
+    <ClCompile Include="EntityLink-odb.cxx">
       <Filter>Файлы исходного кода\Server\odb</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\..\Dev\odb compiler\bin\Entity-odb.cxx">
+    <ClCompile Include="Entity-odb.cxx">
       <Filter>Файлы исходного кода\Server\odb</Filter>
     </ClCompile>
     <ClCompile Include="PhysicsData-odb.cxx">
       <Filter>Файлы исходного кода\Server\odb</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity_Object.cpp">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -108,9 +108,9 @@ namespace odb
     typedef
     pgsql::query_column<
       pgsql::value_traits<
-        char,
-        pgsql::id_bytea >::query_type,
-      pgsql::id_bytea >
+        int,
+        pgsql::id_integer >::query_type,
+      pgsql::id_integer >
     shape_id_type_;
 
     static const shape_id_type_ shape_id;
@@ -222,8 +222,7 @@ namespace odb
 
       // _shape_id
       //
-      details::buffer _shape_id_value;
-      std::size_t _shape_id_size;
+      int _shape_id_value;
       bool _shape_id_null;
 
       // _height

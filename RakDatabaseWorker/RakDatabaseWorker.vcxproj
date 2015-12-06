@@ -170,7 +170,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\..\Dev\odb compiler\bin\Entity-odb.hxx" />
     <ClInclude Include="..\Deps\Rak-Net\Source\AutopatcherPatchContext.h" />
     <ClInclude Include="..\Deps\Rak-Net\Source\AutopatcherRepositoryInterface.h" />
     <ClInclude Include="..\Deps\Rak-Net\Source\Base64Encoder.h" />
@@ -328,16 +327,20 @@
     <ClInclude Include="ConfigLoader.h" />
     <ClInclude Include="ConnectedClient.h" />
     <ClInclude Include="easylogging++.h" />
+    <ClInclude Include="Entity-odb.hxx" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="EntityLink-odb.hxx" />
     <ClInclude Include="EntityLink.h" />
     <ClInclude Include="EntityLoader.h" />
+    <ClInclude Include="Entity_Object.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="minGlue.h" />
     <ClInclude Include="minIni.h" />
     <ClInclude Include="NetworkListener.h" />
     <ClInclude Include="PhysicsData-odb.hxx" />
     <ClInclude Include="PhysicsData.h" />
+    <ClInclude Include="RPCLoadEntity.h" />
     <ClInclude Include="RPCLoadPlayerEntity.h" />
     <ClInclude Include="RPCLoadWorlds.h" />
     <ClInclude Include="Server.h" />
@@ -348,8 +351,6 @@
     <ClInclude Include="WorldInfo.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\Dev\odb compiler\bin\Entity-odb.cxx" />
-    <ClCompile Include="..\..\..\..\..\..\..\Dev\odb compiler\bin\EntityLink-odb.cxx" />
     <ClCompile Include="..\Deps\Rak-Net\Source\Base64Encoder.cpp" />
     <ClCompile Include="..\Deps\Rak-Net\Source\BitStream.cpp" />
     <ClCompile Include="..\Deps\Rak-Net\Source\CCRakNetSlidingWindow.cpp" />
@@ -461,6 +462,9 @@
     <ClCompile Include="..\Deps\Rak-Net\Source\WSAStartupSingleton.cpp" />
     <ClCompile Include="..\Deps\Rak-Net\Source\_FindFirst.cpp" />
     <ClCompile Include="ConfigLoader.cpp" />
+    <ClCompile Include="Entity-odb.cxx" />
+    <ClCompile Include="EntityLink-odb.cxx" />
+    <ClCompile Include="Entity_Object.cpp" />
     <ClCompile Include="minIni.c" />
     <ClCompile Include="NetworkListener.cpp" />
     <ClCompile Include="PhysicsData-odb.cxx" />

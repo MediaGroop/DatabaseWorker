@@ -7,9 +7,13 @@
 #include "ConfigLoader.h"
 #include "Server.h"
 #include "ServVars.h"
+#include "EntityFactory.h"
+#include "Entity_Object.h"
 
 //RPC's
 #include "RPCLoadWorlds.h"
+#include "RPCLoadPlayerEntity.h"
+#include "RPCLoadEntity.h"
 
 using namespace FileManager;
 
@@ -19,11 +23,13 @@ using namespace FileManager;
 #define ELPP_LOG_UNORDERED_MAP
 #define ELPP_UNORDERED_SET
 #define ELPP_THREAD_SAFE
+#define ELPP_EXPERIMENTAL_ASYNC 
 
 //DONT FORGET THIS SHIT!!1
 INITIALIZE_EASYLOGGINGPP
 
 //extern vars
+factory g_factory;
 Server* mainServer;
 RakNet::RPC4 rpc;
 std::auto_ptr<odb::database> dataBase(new odb::pgsql::database(
@@ -59,15 +65,19 @@ void setupLog(){
 	el::Loggers::reconfigureAllLoggers(el::ConfigurationType::Filename, log_name);
 }
 
+static void registerClasses()
+{
+	REGISTER_CLASS(-1, Entity_Object);
+}
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+
+	registerClasses();
 	char str[10];
 	setupLog();
 	ConfigLoader::init("config.ini");
 	NetworkListener listen;
-	//listen.add((short)ID_NEW_INCOMING_CONNECTION, handleconn); // Server connect handler
-	//listen.add((short)ID_CONNECTION_LOST, handledisconn); // Server disconnect handler
 
 	Server srv(&listen);
 
@@ -77,8 +87,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	mainServer->getPeer()->AttachPlugin(&rpc);
 	
 	//Registering RPC's
-	rpc.RegisterSlot("lw", loadWorldsRPC, 0); // loads worlds info
-	rpc.RegisterSlot("lpe", loadPlayerEntity, 0); // loads entity for player
+	rpc.RegisterFunction("lw", loadWorldsRPC); // loads worlds info
+	rpc.RegisterFunction("lpe", loadPlayerEntity); // loads entity for player
+	rpc.RegisterFunction("le", loadEntityData); // loads entity for player
 	//END
 
 	gets(str);

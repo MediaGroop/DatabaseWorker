@@ -2,50 +2,27 @@
 #include "stdafx.h"
 #include "ServVars.h"
 #include "Entity-odb.hxx"
-#include "PhysicsData-odb.hxx"
 
-void loadEntity(int id){
+//Loads entity info form database
+Entity loadEntity(int id){
 	typedef odb::query<Entity> queryS;
 	typedef odb::result<Entity> resultS;
 	odb::transaction t(dataBase->begin());
-	Entity* ent = dataBase->query_one<Entity>((queryS::id == id));
-	if (ent != nullptr)
+	Entity ent;
+
+	resultS r(dataBase->query<Entity>(queryS::id == id));
+
+	for (resultS::iterator i(r.begin()); i != r.end(); ++i)
 	{
-		RakNet::BitStream bs;
-
-		bs.Write(ent->id());
-		bs.Write(ent->bodyId());
-		bs.Write(ent->worldId());
-		bs.Write(ent->upcastId());
-
-		bs.Write(ent->x_grid());
-		bs.Write(ent->y_grid());
-
-		bs.Write(ent->x());
-		bs.Write(ent->y());
-		bs.Write(ent->z());
-
-
-		typedef odb::query<PhysicsData> queryP;
-		typedef odb::result<PhysicsData> resultP;
-		odb::transaction t(dataBase->begin());
-		PhysicsData* pd = dataBase->query_one<PhysicsData>((queryP::id == id));
-		if (pd != nullptr){
-			bs.Write(true);
-			bs.Write(pd->shape_id);
-			bs.Write(pd->height);
-			bs.Write(pd->radius);
-			bs.Write(pd->has_mass);
-			bs.Write(pd->mass);
-		}
-		else {
-			bs.Write(false);
-		}
-
-		rpc.Signal("ae", &bs, MEDIUM_PRIORITY, RELIABLE_ORDERED, 0, mainServer->getPeer()->GetSystemAddressFromIndex(0), false, true);
+		char str[100];
+		itoa((*i).id(), str, 10);
+		LOG(INFO) << "ID: " << str;
+		itoa((*i).upcastId(), str, 10);
+		LOG(INFO) << "Uid: " << str;
+		itoa((*i).worldId(), str, 10);
+		LOG(INFO) << "World Id: " << str;
+		ent = (*i);
 	}
-	else
-	{
-		LOG(INFO) << "No ENtity!";
-	}
-}
+	t.commit();
+	return ent;
+};

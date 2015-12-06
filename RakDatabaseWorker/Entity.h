@@ -5,9 +5,10 @@
 #pragma db object
 class Entity{
 public:
+
 	Entity(int i, int wi, int bi, int xg, int yg, float x, float y, float z, int uid) : _id(i), _body_id(bi), _world_id(wi), _x(x), _y(y), _z(z), _x_grid(xg), _y_grid(yg), _upcast_id(uid)	{};
 
-	~Entity(){};
+	virtual ~Entity(){};
 
 	Entity()
 	{
@@ -66,6 +67,7 @@ private:
 
 #pragma db id 
 	int _id;
+
 	int _world_id;
 	float _x, _y, _z;
 	int _x_grid, _y_grid;

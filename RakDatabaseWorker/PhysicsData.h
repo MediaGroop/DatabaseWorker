@@ -5,7 +5,7 @@
 #pragma db object
 class PhysicsData{
 public:
-	PhysicsData(int i, char si, float h, float r, float m, bool hm) : _id(i), _shape_id(si), _height(h), _radius(r), _mass(m), _has_mass(hm){};
+	PhysicsData(int i, int si, float h, float r, float m, bool hm) : _id(i), _shape_id(si), _height(h), _radius(r), _mass(m), _has_mass(hm){};
 
 	~PhysicsData(){};
 
@@ -27,15 +27,15 @@ public:
 		return _shape_id;
 	};
 
-	int height(){
+	float height(){
 		return _height;
 	};
 
-	int radius(){
+	float radius(){
 		return _radius;
 	};
 
-	int mass(){
+	float mass(){
 		return _mass;
 	};
 
@@ -49,8 +49,9 @@ private:
 
 #pragma db id 
 	int _id;
-#pragma db type("BYTEA")
-	char _shape_id;
+
+	int _shape_id;
+
 	float _height, _radius, _mass;
 	bool _has_mass;
 };

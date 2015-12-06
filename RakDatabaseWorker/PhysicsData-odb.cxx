@@ -48,7 +48,7 @@ namespace odb
   persist_statement_types[] =
   {
     pgsql::int4_oid,
-    pgsql::bytea_oid,
+    pgsql::int4_oid,
     pgsql::float4_oid,
     pgsql::float4_oid,
     pgsql::float4_oid,
@@ -64,7 +64,7 @@ namespace odb
   const unsigned int access::object_traits_impl< ::PhysicsData, id_pgsql >::
   update_statement_types[] =
   {
-    pgsql::bytea_oid,
+    pgsql::int4_oid,
     pgsql::float4_oid,
     pgsql::float4_oid,
     pgsql::float4_oid,
@@ -121,11 +121,7 @@ namespace odb
 
     // _shape_id
     //
-    if (t[1UL])
-    {
-      i._shape_id_value.capacity (i._shape_id_size);
-      grew = true;
-    }
+    t[1UL] = 0;
 
     // _height
     //
@@ -169,10 +165,8 @@ namespace odb
 
     // _shape_id
     //
-    b[n].type = pgsql::bind::bytea;
-    b[n].buffer = i._shape_id_value.data ();
-    b[n].capacity = i._shape_id_value.capacity ();
-    b[n].size = &i._shape_id_size;
+    b[n].type = pgsql::bind::integer;
+    b[n].buffer = &i._shape_id_value;
     b[n].is_null = &i._shape_id_null;
     n++;
 
@@ -245,22 +239,15 @@ namespace odb
     // _shape_id
     //
     {
-      char const& v =
+      int const& v =
         o._shape_id;
 
       bool is_null (false);
-      std::size_t size (0);
-      std::size_t cap (i._shape_id_value.capacity ());
       pgsql::value_traits<
-          char,
-          pgsql::id_bytea >::set_image (
-        i._shape_id_value,
-        size,
-        is_null,
-        v);
+          int,
+          pgsql::id_integer >::set_image (
+        i._shape_id_value, is_null, v);
       i._shape_id_null = is_null;
-      i._shape_id_size = size;
-      grew = grew || (cap != i._shape_id_value.capacity ());
     }
 
     // _height
@@ -348,15 +335,14 @@ namespace odb
     // _shape_id
     //
     {
-      char& v =
+      int& v =
         o._shape_id;
 
       pgsql::value_traits<
-          char,
-          pgsql::id_bytea >::set_value (
+          int,
+          pgsql::id_integer >::set_value (
         v,
         i._shape_id_value,
-        i._shape_id_size,
         i._shape_id_null);
     }
 
@@ -763,20 +749,6 @@ namespace odb
     st.execute ();
     auto_result ar (st);
     select_statement::result r (st.fetch ());
-
-    if (r == select_statement::truncated)
-    {
-      if (grow (im, sts.select_image_truncated ()))
-        im.version++;
-
-      if (im.version != sts.select_image_version ())
-      {
-        bind (imb.bind, im, statement_select);
-        sts.select_image_version (im.version);
-        imb.version++;
-        st.refetch ();
-      }
-    }
 
     return r != select_statement::no_data;
   }

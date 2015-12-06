@@ -23,7 +23,7 @@ void loadWorldsRPC(RakNet::BitStream *bitStream, RakNet::Packet *packet)
 		bs.Write(i->x());
 		bs.Write(i->y());
 		bs.Write(i->z());
-		rpc.Signal("aw", &bs, MEDIUM_PRIORITY, RELIABLE_ORDERED, 0, mainServer->getPeer()->GetSystemAddressFromIndex(0), false, true);
+		rpc.Call("aw", &bs, MEDIUM_PRIORITY, RELIABLE_ORDERED, 0, mainServer->getPeer()->GetSystemAddressFromIndex(0), false);
 		LOG(INFO) << "Add world RPC";
 	}
 
