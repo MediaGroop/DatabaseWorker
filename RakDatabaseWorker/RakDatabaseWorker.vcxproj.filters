@@ -34,6 +34,24 @@
     <Filter Include="Файлы исходного кода\Server\odb">
       <UniqueIdentifier>{9c377444-f9ce-4e46-b94a-a36b0e57623d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\Server\Net">
+      <UniqueIdentifier>{a9a6155b-2fa1-47bc-b8c3-66c0a755aa2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Server\Objects">
+      <UniqueIdentifier>{c3534e39-f5f8-4021-8a95-e218b265c38f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Server\Utils">
+      <UniqueIdentifier>{833ccb0d-5516-4eb1-af08-c0059ca004c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Server\Net">
+      <UniqueIdentifier>{63a94d57-2dd6-40b6-8dac-54153a9b6e17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Server\Utils">
+      <UniqueIdentifier>{8d4a44bc-b69d-4e5f-b7ba-d71773432eae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Server\Objects">
+      <UniqueIdentifier>{21c000b8-23d3-43b1-9848-6eadea76a7d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -44,9 +62,6 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="WorldInfo.h">
-      <Filter>Заголовочные файлы\Server</Filter>
     </ClInclude>
     <ClInclude Include="..\Deps\Rak-Net\Source\WindowsIncludes.h">
       <Filter>Заголовочные файлы\RakNet</Filter>
@@ -510,33 +525,6 @@
     <ClInclude Include="..\Deps\Rak-Net\Source\VitaIncludes.h">
       <Filter>Заголовочные файлы\RakNet</Filter>
     </ClInclude>
-    <ClInclude Include="ConfigLoader.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="ConnectedClient.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="easylogging++.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="FileManager.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="minGlue.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="minIni.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="NetworkListener.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="Server.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="ServVars.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
     <ClInclude Include="RPCLoadWorlds.h">
       <Filter>Заголовочные файлы\Server\rpc</Filter>
     </ClInclude>
@@ -546,26 +534,11 @@
     <ClInclude Include="RPCLoadPlayerEntity.h">
       <Filter>Заголовочные файлы\Server\rpc</Filter>
     </ClInclude>
-    <ClInclude Include="EntityLink.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
     <ClInclude Include="EntityLink-odb.hxx">
       <Filter>Заголовочные файлы\Server\odb</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsData.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityLoader.h">
-      <Filter>Заголовочные файлы\Server</Filter>
-    </ClInclude>
     <ClInclude Include="RPCLoadEntity.h">
       <Filter>Заголовочные файлы\Server\rpc</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityFactory.h">
-      <Filter>Заголовочные файлы\Server</Filter>
     </ClInclude>
     <ClInclude Include="Entity-odb.hxx">
       <Filter>Заголовочные файлы\Server\odb</Filter>
@@ -573,8 +546,53 @@
     <ClInclude Include="PhysicsData-odb.hxx">
       <Filter>Заголовочные файлы\Server\odb</Filter>
     </ClInclude>
+    <ClInclude Include="ConfigLoader.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectedClient.h">
+      <Filter>Заголовочные файлы\Server\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="easylogging++.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="minGlue.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="minIni.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityLoader.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ServVars.h">
+      <Filter>Заголовочные файлы\Server\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.h">
+      <Filter>Заголовочные файлы\Server\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityFactory.h">
+      <Filter>Заголовочные файлы\Server\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkListener.h">
+      <Filter>Заголовочные файлы\Server\Net</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldInfo.h">
+      <Filter>Заголовочные файлы\Server\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Заголовочные файлы\Server\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityLink.h">
+      <Filter>Заголовочные файлы\Server\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsData.h">
+      <Filter>Заголовочные файлы\Server\Objects</Filter>
+    </ClInclude>
     <ClInclude Include="Entity_Object.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Server\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -914,18 +932,6 @@
     <ClCompile Include="RakDatabaseWorker.cpp">
       <Filter>Файлы исходного кода\Server</Filter>
     </ClCompile>
-    <ClCompile Include="ConfigLoader.cpp">
-      <Filter>Файлы исходного кода\Server</Filter>
-    </ClCompile>
-    <ClCompile Include="NetworkListener.cpp">
-      <Filter>Файлы исходного кода\Server</Filter>
-    </ClCompile>
-    <ClCompile Include="Server.cpp">
-      <Filter>Файлы исходного кода\Server</Filter>
-    </ClCompile>
-    <ClCompile Include="minIni.c">
-      <Filter>Файлы исходного кода\Server</Filter>
-    </ClCompile>
     <ClCompile Include="WorldInfo-odb.cxx">
       <Filter>Файлы исходного кода\Server\odb</Filter>
     </ClCompile>
@@ -938,8 +944,20 @@
     <ClCompile Include="PhysicsData-odb.cxx">
       <Filter>Файлы исходного кода\Server\odb</Filter>
     </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>Файлы исходного кода\Server\Net</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigLoader.cpp">
+      <Filter>Файлы исходного кода\Server\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="minIni.c">
+      <Filter>Файлы исходного кода\Server\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkListener.cpp">
+      <Filter>Файлы исходного кода\Server\Net</Filter>
+    </ClCompile>
     <ClCompile Include="Entity_Object.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\Server\Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

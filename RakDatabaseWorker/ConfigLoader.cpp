@@ -21,6 +21,10 @@ void ConfigLoader::createDefault(std::string path){
 	ini.put("Network", "Port", "66635");
 	ini.put("Network", "MaxCons", "1");
 
+	ini.put("Database", "User", "postgres");
+	ini.put("Database", "Pass", "root");
+	ini.put("Database", "DBName", "data");
+	ini.put("Database", "DBAddress", "localhost");
 }
 
 //Returns value from config

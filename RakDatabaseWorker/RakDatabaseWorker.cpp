@@ -32,11 +32,7 @@ INITIALIZE_EASYLOGGINGPP
 factory g_factory;
 Server* mainServer;
 RakNet::RPC4 rpc;
-std::auto_ptr<odb::database> dataBase(new odb::pgsql::database(
-	"postgres",
-	"root",
-	"data",
-	"localhost"));
+std::auto_ptr<odb::database> dataBase;
 
 //Configuring easyLogging
 void setupLog(){
@@ -76,7 +72,14 @@ int _tmain(int argc, _TCHAR* argv[])
 	registerClasses();
 	char str[10];
 	setupLog();
+	LOG(INFO) << "Log was initialized...";
 	ConfigLoader::init("config.ini");
+	LOG(INFO) << "Configuration loaded...";
+	dataBase = *new std::auto_ptr<odb::database>(new odb::pgsql::database(
+		ConfigLoader::getVal("Database-User"),
+		ConfigLoader::getVal("Database-Pass"),
+		ConfigLoader::getVal("Database-DBName"),
+		ConfigLoader::getVal("Database-DBAddress")));
 	NetworkListener listen;
 
 	Server srv(&listen);
