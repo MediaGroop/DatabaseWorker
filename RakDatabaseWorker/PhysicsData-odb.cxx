@@ -27,22 +27,22 @@ namespace odb
   //
 
   const char access::object_traits_impl< ::PhysicsData, id_pgsql >::
-  persist_statement_name[] = "persist_PhysicsData";
+  persist_statement_name[] = "PhysicsData_persist";
 
   const char access::object_traits_impl< ::PhysicsData, id_pgsql >::
-  find_statement_name[] = "find_PhysicsData";
+  find_statement_name[] = "PhysicsData_find";
 
   const char access::object_traits_impl< ::PhysicsData, id_pgsql >::
-  update_statement_name[] = "update_PhysicsData";
+  update_statement_name[] = "PhysicsData_update";
 
   const char access::object_traits_impl< ::PhysicsData, id_pgsql >::
-  erase_statement_name[] = "erase_PhysicsData";
+  erase_statement_name[] = "PhysicsData_erase";
 
   const char access::object_traits_impl< ::PhysicsData, id_pgsql >::
-  query_statement_name[] = "query_PhysicsData";
+  query_statement_name[] = "PhysicsData_query";
 
   const char access::object_traits_impl< ::PhysicsData, id_pgsql >::
-  erase_query_statement_name[] = "erase_query_PhysicsData";
+  erase_query_statement_name[] = "PhysicsData_erase_query";
 
   const unsigned int access::object_traits_impl< ::PhysicsData, id_pgsql >::
   persist_statement_types[] =
@@ -77,7 +77,6 @@ namespace odb
     extra_statement_cache_type (
       pgsql::connection&,
       image_type&,
-      id_image_type&,
       pgsql::binding&,
       pgsql::binding&,
       pgsql::native_binding&,

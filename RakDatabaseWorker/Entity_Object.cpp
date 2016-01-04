@@ -22,13 +22,13 @@ void Entity_Object::loadData(RakNet::BitStream* to){
 
 		for (resultS::iterator i(r.begin()); i != r.end(); ++i)
 		{
-			char str[100];
-			itoa((*i).id(), str, 10);
-			LOG(INFO) << "ID: " << str;
-			itoa((*i).upcastId(), str, 10);
-			LOG(INFO) << "Uid: " << str;
-			itoa((*i).worldId(), str, 10);
-			LOG(INFO) << "World Id: " << str;
+			//char str[100];
+			//itoa((*i).id(), str, 10);
+			//LOG(INFO) << "ID: " << str;
+			//itoa((*i).upcastId(), str, 10);
+			//LOG(INFO) << "Uid: " << str;
+			//itoa((*i).worldId(), str, 10);
+			//LOG(INFO) << "World Id: " << str;
 			to->Write((*i).id());
 			to->Write((*i).worldId());
 			to->Write((*i).bodyId());

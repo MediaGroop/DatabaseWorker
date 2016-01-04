@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alastar/projects/RakDatabaseWorker/minGlue.h
+stdio.h
+-
+
+/home/alastar/projects/RakDatabaseWorker/minIni.c
+minIni.h
+/home/alastar/projects/RakDatabaseWorker/minIni.h
+assert.h
+-
+ctype.h
+-
+string.h
+-
+stdlib.h
+-
+
+/home/alastar/projects/RakDatabaseWorker/minIni.h
+minGlue.h
+/home/alastar/projects/RakDatabaseWorker/minGlue.h
+tchar.h
+-
+wxMinIni.h
+/home/alastar/projects/RakDatabaseWorker/wxMinIni.h
+string
+-
+

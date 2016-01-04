@@ -27,22 +27,22 @@ namespace odb
   //
 
   const char access::object_traits_impl< ::WorldInfo, id_pgsql >::
-  persist_statement_name[] = "persist_WorldInfo";
+  persist_statement_name[] = "WorldInfo_persist";
 
   const char access::object_traits_impl< ::WorldInfo, id_pgsql >::
-  find_statement_name[] = "find_WorldInfo";
+  find_statement_name[] = "WorldInfo_find";
 
   const char access::object_traits_impl< ::WorldInfo, id_pgsql >::
-  update_statement_name[] = "update_WorldInfo";
+  update_statement_name[] = "WorldInfo_update";
 
   const char access::object_traits_impl< ::WorldInfo, id_pgsql >::
-  erase_statement_name[] = "erase_WorldInfo";
+  erase_statement_name[] = "WorldInfo_erase";
 
   const char access::object_traits_impl< ::WorldInfo, id_pgsql >::
-  query_statement_name[] = "query_WorldInfo";
+  query_statement_name[] = "WorldInfo_query";
 
   const char access::object_traits_impl< ::WorldInfo, id_pgsql >::
-  erase_query_statement_name[] = "erase_query_WorldInfo";
+  erase_query_statement_name[] = "WorldInfo_erase_query";
 
   const unsigned int access::object_traits_impl< ::WorldInfo, id_pgsql >::
   persist_statement_types[] =
@@ -75,7 +75,6 @@ namespace odb
     extra_statement_cache_type (
       pgsql::connection&,
       image_type&,
-      id_image_type&,
       pgsql::binding&,
       pgsql::binding&,
       pgsql::native_binding&,

@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include <string>
-#include "odb\core.hxx"
+#include "odb/core.hxx"
 #include "ServVars.h"
 #include "Entity-odb.hxx"
 #include "PhysicsData-odb.hxx"

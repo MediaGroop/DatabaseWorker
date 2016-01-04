@@ -15,7 +15,13 @@
 #include "RPCLoadPlayerEntity.h"
 #include "RPCLoadEntity.h"
 
-using namespace FileManager;
+#include <stdio.h>  /* defines FILENAME_MAX */
+
+#if defined(_WIN64) || defined(_WIN32)
+#include <thread>
+#else
+#include <pthread.h>
+#endif
 
 #define ELPP_STL_LOGGING
 #define ELPP_PERFORMANCE_MICROSECONDS
@@ -35,17 +41,18 @@ RakNet::RPC4 rpc;
 std::auto_ptr<odb::database> dataBase;
 
 //Configuring easyLogging
+
 void setupLog(){
 	time_t t;
 	t = time(0);
-	char str[64];
+	char str[FILENAME_MAX];
 
-	getcwd(str, 64);
-	if (!FileManager::DirExists(strcat(str, "\\logs\\"))){
-		mkdir(str);
+	getcwd(str, sizeof(str));
+	if (!FileManager::DirExists(strcat(str, "//logs//"))){
+		mkdir(str, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 	}
 
-	std::string log_name = "logs\\";
+	std::string log_name = "//logs//";
 	log_name.append(asctime(localtime(&t)));
 	log_name[log_name.length() - 1] = ' ';
 	log_name.append(".txt");
@@ -66,7 +73,7 @@ static void registerClasses()
 	REGISTER_CLASS(-1, Entity_Object);
 }
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, const char** argv)
 {
 
 	registerClasses();
@@ -85,8 +92,18 @@ int _tmain(int argc, _TCHAR* argv[])
 	Server srv(&listen);
 
 	mainServer = &srv;
-	std::thread trd(mainServer->startNetworkTrd, mainServer, ConfigLoader::getIntVal("Network-Port"), ConfigLoader::getIntVal("Network-MaxCons"));
-	mainServer->setThread(&trd);
+#if defined(_WIN64) || defined(_WIN32)
+	mainServer->setThread(	new std::thread(mainServer->startNetworkTrd, mainServer, ConfigLoader::getIntVal("Network-Port"), ConfigLoader::getIntVal("Network-MaxCons")));
+#else
+	pthread_t* trd = new pthread_t();
+	server_data data;
+	data.instance = mainServer;
+	data.max_players = ConfigLoader::getIntVal("Network-MaxCons");
+	data.port = ConfigLoader::getIntVal("Network-Port");
+	pthread_create(trd, NULL, &mainServer->startMainNetworkThread, (void *)&data);
+	mainServer->setThread(trd);
+#endif
+	while(!mainServer->getRunning()){} // wait for full init
 	mainServer->getPeer()->AttachPlugin(&rpc);
 	
 	//Registering RPC's
@@ -98,8 +115,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	gets(str);
 	
 	mainServer->setRunning(false);
+#if defined(_WIN64) || defined(_WIN32)
 	mainServer->getThread()->join();
-
+#endif
 	return 0;
 }
 

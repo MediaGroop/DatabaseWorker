@@ -15,11 +15,11 @@ Entity loadEntity(int id){
 	for (resultS::iterator i(r.begin()); i != r.end(); ++i)
 	{
 		char str[100];
-		itoa((*i).id(), str, 10);
-		LOG(INFO) << "ID: " << str;
-		itoa((*i).upcastId(), str, 10);
-		LOG(INFO) << "Uid: " << str;
-		itoa((*i).worldId(), str, 10);
+		//itoa((*i).id(), str, 10);
+		//LOG(INFO) << "ID: " << str;
+		//itoa((*i).upcastId(), str, 10);
+		//LOG(INFO) << "Uid: " << str;
+		//itoa((*i).worldId(), str, 10);
 		LOG(INFO) << "World Id: " << str;
 		ent = (*i);
 	}

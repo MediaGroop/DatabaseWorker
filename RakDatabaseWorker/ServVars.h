@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "Server.h"
 #include <map>
-#include "odb\pgsql\database.hxx"
+#include "odb/pgsql/database.hxx"
 #include "RPC4Plugin.h"
 
 //#region vars

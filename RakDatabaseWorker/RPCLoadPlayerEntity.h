@@ -31,9 +31,9 @@ void loadPlayerEntity(RakNet::BitStream *bitStream, RakNet::Packet *packet)
 		{
 			link = (*i);
 
-			itoa(link.id(), str, 10);
+			//itoa(link.id(), str, 10);
 			LOG(INFO) << "Link info:";
-			LOG(INFO) << "id: " << str;
+			//LOG(INFO) << "id: " << str;
 			LOG(INFO) << "account: " << link.account();
 			LOG(INFO) << "name: " << link.name();
 
